@@ -604,7 +604,7 @@ const Pricing = () => {
           </div> */}
 
           {/* Team Members Grid */}
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto bg-white border border-orange-100 mt-4 shadow-lg rounded-3xl p-8 sm:p-12 text-left mx-auto leading-relaxed">
             {teamMembers.map((member, index) => (
               <div key={index} className="text-center">
                 {/* Profile Image */}
