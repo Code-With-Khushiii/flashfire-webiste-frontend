@@ -635,7 +635,7 @@ const Pricing = () => {
         {/* Heart icon header */}
         <div className="flex justify-center mb-8">
           <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center shadow-inner">
-            <Heart className="w-8 h-8 text-orange-500" />
+            {/* <Heart className="w-8 h-8 text-orange-500" /> */}
           </div>
         </div>
 
