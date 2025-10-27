@@ -639,14 +639,16 @@ const Pricing = () => {
           </div>
         </div>
 
-        {/* Heading */}
-        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-10">
-          To Every Job Seeker Who’s <span className="text-orange-500">Ready to Move Forward</span>
-        </h2>
+       
+      
 
         {/* Note content */}
         <div className="bg-white border border-orange-100 shadow-lg rounded-3xl p-8 sm:p-12 text-left max-w-3xl mx-auto leading-relaxed">
+            <p className="text-gray-700 mb-5 text-lg">
+               To Every Job Seeker Who’s Ready to Move Forward
+            </p>
           <p className="text-gray-700 mb-5 text-lg">
+
             I know how exhausting the job search can be. You keep sending out application after application, waiting for replies,
             and slowly starting to wonder if it’s you. Especially in the U.S., where hundreds apply for the same role, even the most
             talented people begin to lose hope.
