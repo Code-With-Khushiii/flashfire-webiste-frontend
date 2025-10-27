@@ -527,7 +527,7 @@ const Pricing = () => {
 
       {/* Risk-Free Guarantee Section */}
       <section className="py-12 bg-gradient-to-b from-gray-50 to-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="bg-white rounded-2xl shadow-xl hover:shadow-2xl border-4 border-orange-300 p-6 sm:p-8 relative overflow-hidden"
             initial={{ opacity: 0, y: 20 }}
@@ -555,7 +555,7 @@ const Pricing = () => {
             </div>
           </motion.div>
         </div>
-        <div className="bg-white border border-orange-100 mt-6 shadow-lg rounded-3xl p-8 sm:p-12 text-left max-w-3xl mx-auto leading-relaxed">
+        <div className="bg-white border border-orange-100 mt-4 shadow-lg rounded-3xl p-8 sm:p-12 text-left max-w-3xl mx-auto leading-relaxed">
             <p className="text-gray-700 mb-5 text-lg">
                To Every Job Seeker Who’s Ready to Move Forward
             </p>
@@ -588,10 +588,7 @@ const Pricing = () => {
             Because you’re not just looking for a job — you’re building your future. <br />
             <span className="text-orange-500 font-semibold not-italic">And that future starts here.</span>
           </p>
-        </div>
-      </section>
-      <section className="mt-4 mb-4 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           {/* <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -604,7 +601,7 @@ const Pricing = () => {
           </div> */}
 
           {/* Team Members Grid */}
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto bg-white border border-orange-100 mt-4 shadow-lg rounded-3xl p-8 sm:p-12 text-left mx-auto leading-relaxed">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto ">
             {teamMembers.map((member, index) => (
               <div key={index} className="text-center">
                 {/* Profile Image */}
@@ -654,8 +651,9 @@ const Pricing = () => {
             ))}
           </div>
         </div>
+        </div>
       </section>
-     
+      
     </>
   )
 }
