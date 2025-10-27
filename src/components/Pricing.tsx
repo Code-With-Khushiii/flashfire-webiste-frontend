@@ -555,6 +555,40 @@ const Pricing = () => {
             </div>
           </motion.div>
         </div>
+        <div className="bg-white border border-orange-100 shadow-lg rounded-3xl p-8 sm:p-12 text-left max-w-3xl mx-auto leading-relaxed">
+            <p className="text-gray-700 mb-5 text-lg">
+               To Every Job Seeker Who’s Ready to Move Forward
+            </p>
+          <p className="text-gray-700 mb-5 text-lg">
+
+            I know how exhausting the job search can be. You keep sending out application after application, waiting for replies,
+            and slowly starting to wonder if it’s you. Especially in the U.S., where hundreds apply for the same role, even the most
+            talented people begin to lose hope.
+          </p>
+          <p className="text-gray-700 mb-5 text-lg">
+            Flashfire was born from that same feeling. I watched my sister—smart, capable, and hardworking—apply to hundreds of
+            roles and still get no response. It wasn’t her fault. The system had stopped seeing people for who they are.
+          </p>
+          <p className="text-gray-700 mb-5 text-lg">
+            That’s when it hit me: the problem was never the people, it was the process. Flashfire was built to change that.
+          </p>
+          <p className="text-gray-700 mb-5 text-lg">
+            That’s when <span className="font-semibold text-orange-600">Pranjal</span> joined me. He had gone through the same struggle—
+            preparing hard, clearing rounds, yet falling short of the final offer. Not because he wasn’t good enough, but because the
+            process wasn’t fair. Instead of giving up, he decided to build a better way forward.
+          </p>
+          <p className="text-gray-700 mb-5 text-lg">
+            Together, we started building Flashfire—not just with code, but with belief, empathy, and persistence.
+          </p>
+          <p className="text-gray-700 mb-5 text-lg">
+            What began as a way to help one person is now helping hundreds. Flashfire helps people apply smarter, tell their stories
+            better, and finally hear that long-awaited “yes.”
+          </p>
+          <p className="text-gray-800 font-medium text-lg mt-8 border-t border-orange-100 pt-6 italic text-center">
+            Because you’re not just looking for a job — you’re building your future. <br />
+            <span className="text-orange-500 font-semibold not-italic">And that future starts here.</span>
+          </p>
+        </div>
       </section>
       <section className="mt-4 mb-4 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -621,87 +655,7 @@ const Pricing = () => {
           </div>
         </div>
       </section>
-     <section className="relative py-24 bg-gradient-to-b from-orange-50 via-white to-orange-50 overflow-hidden">
-      {/* Subtle background glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,160,122,0.15),transparent_70%)]"></div>
-
-      <motion.div
-        className="relative max-w-5xl mx-auto px-6 text-center"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: 'easeOut' }}
-        viewport={{ once: true }}
-      >
-        {/* Heart icon header */}
-        {/* <div className="flex justify-center mb-8">
-          <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center shadow-inner">
-            {/* <Heart className="w-8 h-8 text-orange-500" /> }
-          </div>
-        </div> */}
-
-       
-      
-
-        {/* Note content */}
-        <div className="bg-white border border-orange-100 shadow-lg rounded-3xl p-8 sm:p-12 text-left max-w-3xl mx-auto leading-relaxed">
-            <p className="text-gray-700 mb-5 text-lg">
-               To Every Job Seeker Who’s Ready to Move Forward
-            </p>
-          <p className="text-gray-700 mb-5 text-lg">
-
-            I know how exhausting the job search can be. You keep sending out application after application, waiting for replies,
-            and slowly starting to wonder if it’s you. Especially in the U.S., where hundreds apply for the same role, even the most
-            talented people begin to lose hope.
-          </p>
-          <p className="text-gray-700 mb-5 text-lg">
-            Flashfire was born from that same feeling. I watched my sister—smart, capable, and hardworking—apply to hundreds of
-            roles and still get no response. It wasn’t her fault. The system had stopped seeing people for who they are.
-          </p>
-          <p className="text-gray-700 mb-5 text-lg">
-            That’s when it hit me: the problem was never the people, it was the process. Flashfire was built to change that.
-          </p>
-          <p className="text-gray-700 mb-5 text-lg">
-            That’s when <span className="font-semibold text-orange-600">Pranjal</span> joined me. He had gone through the same struggle—
-            preparing hard, clearing rounds, yet falling short of the final offer. Not because he wasn’t good enough, but because the
-            process wasn’t fair. Instead of giving up, he decided to build a better way forward.
-          </p>
-          <p className="text-gray-700 mb-5 text-lg">
-            Together, we started building Flashfire—not just with code, but with belief, empathy, and persistence.
-          </p>
-          <p className="text-gray-700 mb-5 text-lg">
-            What began as a way to help one person is now helping hundreds. Flashfire helps people apply smarter, tell their stories
-            better, and finally hear that long-awaited “yes.”
-          </p>
-          <p className="text-gray-800 font-medium text-lg mt-8 border-t border-orange-100 pt-6 italic text-center">
-            Because you’re not just looking for a job — you’re building your future. <br />
-            <span className="text-orange-500 font-semibold not-italic">And that future starts here.</span>
-          </p>
-        </div>
-
-        {/* Founder Signatures */}
-        <div className="mt-16 flex flex-col sm:flex-row justify-center items-center gap-10">
-          <div className="flex flex-col items-center">
-            <img
-              src="https://res.cloudinary.com/drit9nkha/image/upload/v1753688852/Adit_f2qfe8.webp"
-              alt="Adit Jain"
-              className="w-24 h-24 rounded-full object-cover shadow-md border border-orange-100"
-            />
-            <p className="font-semibold text-gray-900 mt-3">Adit Jain</p>
-            <p className="text-sm text-gray-500">Partner</p>
-          </div>
-
-          <div className="flex flex-col items-center">
-            <img
-              src="https://res.cloudinary.com/drit9nkha/image/upload/v1753688852/pran_img_nbwdya.webp"
-              alt="Pranjal Tripathi"
-              className="w-24 h-24 rounded-full object-cover shadow-md border border-orange-100"
-            />
-            <p className="font-semibold text-gray-900 mt-3">Pranjal Tripathi</p>
-            <p className="text-sm text-gray-500">CTO</p>
-          </div>
-        </div>
-      </motion.div>
-    </section>
+     
     </>
   )
 }
