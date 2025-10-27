@@ -593,7 +593,7 @@ const Pricing = () => {
       <section className="mt-4 mb-4 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
-          <div className="text-center mb-12">
+          {/* <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Led by Experts in <span className="text-orange-500">Product, AI, and Hiring Systems</span>
             </h2>
@@ -601,7 +601,7 @@ const Pricing = () => {
               Flashfire is built by experts in automation, product, and hiring — designed to help job seekers land
               offers faster, at scale.
             </p>
-          </div>
+          </div> */}
 
           {/* Team Members Grid */}
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
