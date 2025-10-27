@@ -555,7 +555,7 @@ const Pricing = () => {
             </div>
           </motion.div>
         </div>
-        <div className="bg-white border border-orange-100 mt-4 shadow-lg rounded-3xl p-8 sm:p-12 text-left max-w-3xl mx-auto leading-relaxed">
+        <div className="bg-white border border-orange-100 mt-6 shadow-lg rounded-3xl p-8 sm:p-12 text-left max-w-3xl mx-auto leading-relaxed">
             <p className="text-gray-700 mb-5 text-lg">
                To Every Job Seeker Who’s Ready to Move Forward
             </p>
