@@ -526,7 +526,7 @@ const Pricing = () => {
       </AnimatePresence>
 
       {/* Risk-Free Guarantee Section */}
-      <section className="py-12 bg-gradient-to-b from-gray-50 to-white">
+      <section className="mt-4 mb-4 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="bg-white rounded-2xl shadow-xl hover:shadow-2xl border-4 border-orange-300 p-6 sm:p-8 relative overflow-hidden"
@@ -555,7 +555,7 @@ const Pricing = () => {
             </div>
           </motion.div>
         </div>
-        <div className="bg-white border border-orange-100 mt-4 shadow-lg rounded-3xl p-8 sm:p-12 text-left max-w-4xl mx-auto leading-relaxed">
+        <div className="bg-white border border-orange-100 mt-4 shadow-lg rounded-3xl p-8 sm:p-12 text-left max-w-5xl mx-auto leading-relaxed">
             <p className="text-gray-700 mb-5 text-lg">
                To Every Job Seeker Who’s Ready to Move Forward
             </p>
