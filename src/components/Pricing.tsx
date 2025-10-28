@@ -555,104 +555,113 @@ const Pricing = () => {
             </div>
           </motion.div>
         </div>
-        <div className="bg-white border border-orange-100 mt-4 shadow-lg rounded-3xl p-8 sm:p-12 text-left max-w-6xl mx-auto leading-relaxed">
-          <p className="text-gray-800 font-semibold mb-2 text-xl leading-snug">
+        <div className="bg-white border border-orange-200 mt-10 shadow-xl rounded-3xl p-10 sm:p-16 max-w-6xl mx-auto leading-relaxed">
+
+          {/* Hero Heading - Bold Letter Style */}
+          <p className="text-gray-900 font-bold text-3xl sm:text-4xl leading-snug mb-6">
             To Every Job Seeker Who’s Ready to Move Forward
           </p>
-          <p className="text-gray-700 mb-5 text-lg">
 
-            I know how exhausting the job search can be. You keep sending out application after application, waiting for replies,
-            and slowly starting to wonder if it’s you. Especially in the U.S., where hundreds apply for the same role, even the most
-            talented people begin to lose hope.
-          </p>
-          <p className="text-gray-700 mb-5 text-lg">
-            Flashfire was born from that same feeling. I watched my sister—smart, capable, and hardworking—apply to hundreds of
-            roles and still get no response. It wasn’t her fault. The system had stopped seeing people for who they are.
-          </p>
-          <p className="text-gray-700 mb-5 text-lg">
-            That’s when it hit me: the problem was never the people, it was the process. Flashfire was built to change that.
-          </p>
-          <p className="text-gray-700 mb-5 text-lg">
-            That’s when <span className="font-semibold text-orange-600">Pranjal</span> joined me. He had gone through the same struggle—
-            preparing hard, clearing rounds, yet falling short of the final offer. Not because he wasn’t good enough, but because the
-            process wasn’t fair. Instead of giving up, he decided to build a better way forward.
-          </p>
-          <p className="text-gray-700 mb-5 text-lg">
-            Together, we started building Flashfire—not just with code, but with belief, empathy, and persistence.
-          </p>
-          <p className="text-gray-700 mb-5 text-lg">
-            What began as a way to help one person is now helping hundreds. Flashfire helps people apply smarter, tell their stories
-            better, and finally hear that long-awaited “yes.”
-          </p>
-          <p className="text-gray-800 font-medium text-lg mt-8 border-t border-orange-100 pt-6 italic text-center">
-            Because you’re not just looking for a job — you’re building your future. <br />
-            <span className="text-orange-500 font-semibold not-italic">And that future starts here.</span>
-          </p>
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            {/* Section Header */}
-            {/* <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Led by Experts in <span className="text-orange-500">Product, AI, and Hiring Systems</span>
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Flashfire is built by experts in automation, product, and hiring — designed to help job seekers land
-              offers faster, at scale.
+          {/* Story Sections */}
+          <div className="space-y-6 text-gray-700 text-[1.1rem]">
+            <p>
+              I know how exhausting the job search can be. You keep sending out application after application,
+              waiting for replies, and slowly starting to wonder if it’s you. Especially in the U.S., where
+              hundreds apply for the same role, even the most talented people begin to lose hope.
             </p>
-          </div> */}
 
-            {/* Team Members Grid */}
-            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto ">
-              {teamMembers.map((member, index) => (
-                <div key={index} className="text-center">
-                  {/* Profile Image */}
-                  <div className="mb-6 relative inline-block">
-                    <div
-                      className={`w-40 h-40 rounded-full overflow-hidden ${member.name === "Pranjal Tripathi" ? "bg-cover bg-center" : ""
-                        }`}
-                      style={
-                        member.name === "Pranjal Tripathi"
-                          ? {
-                            backgroundImage: `url(${member.image})`,
-                            backgroundSize: "120%",
-                            backgroundPosition: "center",
-                          }
-                          : {}
-                      }
-                    >
-                      {member.name === "Adit Jain" && (
-                        <img
-                          src={member.image || "/placeholder.svg"}
-                          alt={member.name}
-                          className="w-full h-full object-cover object-[center_20%]"
-                        />
-                      )}
-                    </div>
+            <p>
+              Flashfire was born from that same feeling. I watched my sister—smart, capable, and hardworking—
+              apply to hundreds of roles and still get no response. It wasn’t her fault. The system had stopped
+              seeing people for who they are.
+            </p>
 
-                    {/* LinkedIn Icon */}
-                    <a
-                      href={member.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="absolute -bottom-2 -right-2 bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-full shadow-lg transition-all duration-200 hover:scale-110"
-                    >
-                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                      </svg>
-                    </a>
-                  </div>
+            <p className="border-l-4 border-orange-400 pl-4 italic">
+              The problem was never the people — it was the process.
+            </p>
 
-                  {/* Member Info */}
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">{member.name}</h3>
-                    <p className="text-orange-500 font-semibold text-lg mb-4">{member.role}</p>
-                    <p className="text-gray-600 text-base leading-relaxed">{member.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <p>
+              That’s when <span className="font-semibold text-orange-600">Pranjal</span> joined me. He had been
+              through the same struggle — preparing hard, clearing rounds, yet falling short of the offer.
+              Not because he wasn’t good enough, but because the process wasn’t fair.
+              Instead of giving up, he decided to help build a better way forward.
+            </p>
+
+            <p>
+              Together, we started building Flashfire — not just with code, but with belief, empathy, and
+              persistence.
+            </p>
+
+            <p>
+              What began as a way to help one person is now helping hundreds. Flashfire helps people apply
+              smarter, tell their stories better, and finally hear that long-awaited “yes.”
+            </p>
           </div>
+
+          {/* Stylish Divider */}
+          <div className="w-24 h-1 bg-orange-400 rounded-full mx-auto my-12"></div>
+
+          {/* Team Section */}
+          <div className="text-center mb-10">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
+              Meet the People Behind Flashfire
+            </h2>
+            <p className="text-gray-600 mt-3 max-w-2xl mx-auto text-lg">
+              A team built from real struggles — now building real solutions.
+            </p>
+          </div>
+
+          {/* Team Members Grid */}
+          <div className="grid sm:grid-cols-2 gap-12 max-w-4xl mx-auto">
+            {teamMembers.map((member, index) => (
+              <div key={index} className="text-center">
+                {/* Profile Image */}
+                <div className="relative inline-block mb-5">
+                  <div
+                    className={`w-40 h-40 rounded-full ring-4 ring-orange-200 overflow-hidden shadow-md ${member.name === "Pranjal Tripathi" ? "bg-cover bg-center" : ""}`}
+                    style={
+                      member.name === "Pranjal Tripathi"
+                        ? {
+                          backgroundImage: `url(${member.image})`,
+                          backgroundSize: "120%",
+                          backgroundPosition: "center",
+                        }
+                        : {}
+                    }
+                  >
+                    {member.name === "Adit Jain" && (
+                      <img
+                        src={member.image || "/placeholder.svg"}
+                        alt={member.name}
+                        className="w-full h-full object-cover object-center"
+                      />
+                    )}
+                  </div>
+
+                  {/* LinkedIn Icon */}
+                  <a
+                    href={member.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute -bottom-2 -right-2 bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-full shadow-lg transition-all hover:scale-110"
+                  >
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M20.447 20.452h-3.554v-5.569 ..." />
+                    </svg>
+                  </a>
+                </div>
+
+                {/* Info */}
+                <h3 className="text-2xl font-bold text-gray-900">{member.name}</h3>
+                <p className="text-orange-500 font-semibold mt-1">{member.role}</p>
+              </div>
+            ))}
+          </div>
+
         </div>
-      </section>
+
+      
+    </section >
 
     </>
   )
