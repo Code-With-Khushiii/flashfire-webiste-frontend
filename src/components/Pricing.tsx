@@ -267,7 +267,7 @@ const Pricing = () => {
                   </div>
                 )}
                 <div className="p-6 sm:p-8">
-                  <div className="text-center mb-6 sm:mb-8">
+                  <div className="text-center mb-2 sm:mb-8">
                     <div
                       className={`inline-flex items-center space-x-2 p-3 rounded-2xl mb-4 ${plan.popular ? "bg-orange-100 text-orange-600" : "bg-gray-100 text-gray-600"
                         }`}
@@ -556,8 +556,8 @@ const Pricing = () => {
           </motion.div>
         </div>
         <div className="bg-white border border-orange-100 mt-4 shadow-lg rounded-3xl p-8 sm:p-12 text-left max-w-6xl mx-auto leading-relaxed">
-          <p className="text-gray-700 mb-5 text-lg">
-            <h4> To Every Job Seeker Who’s Ready to Move Forward</h4>
+          <p className="text-gray-800 font-semibold mb-2 text-xl leading-snug">
+            To Every Job Seeker Who’s Ready to Move Forward
           </p>
           <p className="text-gray-700 mb-5 text-lg">
 
