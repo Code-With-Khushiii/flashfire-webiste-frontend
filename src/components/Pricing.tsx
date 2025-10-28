@@ -612,7 +612,7 @@ const Pricing = () => {
           </div> */}
 
           {/* Team Members Grid */}
-          <div className="grid sm:grid-cols-2 gap-12 max-w-4xl mx-auto">
+          <div className="grid sm:grid-cols-2 gap-12 max-w-4xl mt-10 mx-auto">
             {teamMembers.map((member, index) => (
               <div key={index} className="text-center">
                 {/* Profile Image - Square */}
