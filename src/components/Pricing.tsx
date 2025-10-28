@@ -599,7 +599,7 @@ const Pricing = () => {
           </div>
 
           {/* Stylish Divider */}
-          <div className="w-24 h-1 bg-orange-400 rounded-full mx-auto my-12"></div>
+          {/* <div className="w-24 h-1 bg-orange-400 rounded-full mx-auto my-12"></div> */}
 
           {/* Team Section */}
           {/* <div className="text-center mb-10">
@@ -618,7 +618,7 @@ const Pricing = () => {
                 {/* Profile Image - Square */}
                 <div className="mb-4 inline-block">
                   <div
-                    className={`w-44 h-44 ring-4 ring-orange-200 overflow-hidden shadow-md border border-gray-200 ${member.name === "Pranjal Tripathi" ? "bg-cover bg-center" : ""
+                    className={`w-44 h-44  overflow-hidden shadow-md border border-gray-200 ${member.name === "Pranjal Tripathi" ? "bg-cover bg-center" : ""
                       }`}
                       style={
                       member.name === "Pranjal Tripathi"
@@ -642,14 +642,14 @@ const Pricing = () => {
 
                 {/* Member Name + Role */}
                 <h3 className="text-xl font-bold text-gray-900">{member.name}</h3>
-                <p className="text-orange-500 font-semibold mt-1">{member.role}</p>
+                <p className="text-black font-semibold mt-1">{member.role}</p>
 
                 {/* LinkedIn Text Link */}
                 <a
                   href={member.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block text-green-700 font-medium mt-3 underline hover:text-green-900 transition"
+                  className="block text-[#0A66C2] font-medium mt-3 underline hover:text-[#004182] transition"
                 >
                   LinkedIn Profile
                 </a>
