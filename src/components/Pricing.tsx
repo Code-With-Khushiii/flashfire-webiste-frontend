@@ -618,7 +618,7 @@ const Pricing = () => {
                 {/* Profile Image */}
                 <div className="relative inline-block mb-5">
                   <div
-                    className={`w-40 h-40 rounded-full ring-4 ring-orange-200 overflow-hidden shadow-md ${member.name === "Pranjal Tripathi" ? "bg-cover bg-center" : ""}`}
+                    className={`w-40 h-40  ring-4 ring-orange-200 overflow-hidden shadow-md ${member.name === "Pranjal Tripathi" ? "bg-cover bg-center" : ""}`}
                     style={
                       member.name === "Pranjal Tripathi"
                         ? {
