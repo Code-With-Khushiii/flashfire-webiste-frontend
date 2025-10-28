@@ -558,7 +558,7 @@ const Pricing = () => {
         <div className="bg-white border border-orange-200 mt-10 shadow-xl rounded-3xl p-10 sm:p-16 max-w-6xl mx-auto leading-relaxed">
 
           {/* Hero Heading - Bold Letter Style */}
-          <p className="text-gray-900 font-bold text-[1.7rem] leading-snug mb-6">
+          <p className="text-gray-900 font-bold text-[1.4rem] leading-snug mb-6">
             To Every Job Seeker Who’s Ready to Move Forward
           </p>
 
