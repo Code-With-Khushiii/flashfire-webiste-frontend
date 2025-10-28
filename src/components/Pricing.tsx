@@ -620,11 +620,11 @@ const Pricing = () => {
                   <div
                     className={`w-44 h-44 ring-4 ring-orange-200 overflow-hidden shadow-md border border-gray-200 ${member.name === "Pranjal Tripathi" ? "bg-cover bg-center" : ""
                       }`}
-                    style={
+                      style={
                       member.name === "Pranjal Tripathi"
                         ? {
                           backgroundImage: `url(${member.image})`,
-                          backgroundSize: "cover",
+                          backgroundSize: "120%",
                           backgroundPosition: "center",
                         }
                         : {}
@@ -634,7 +634,7 @@ const Pricing = () => {
                       <img
                         src={member.image || "/placeholder.svg"}
                         alt={member.name}
-                        className="w-full h-full object-cover object-center"
+                        className="w-full h-full object-cover object-[center_20%]"
                       />
                     )}
                   </div>
