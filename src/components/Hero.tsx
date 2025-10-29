@@ -1,21 +1,17 @@
+"use client"
 
 import { useState, useEffect, useRef } from "react"
 import { ArrowRight, Sparkles } from "lucide-react"
 import { GTagUTM } from "../utils/GTagUTM.js"
 import { useNavigate } from "react-router-dom"
-import { 
-  trackButtonClick, 
-  trackSignupIntent, 
-  trackSectionView,
-  trackPageView 
-} from "../utils/PostHogTracking.ts"
+import { trackButtonClick, trackSignupIntent, trackSectionView, trackPageView } from "../utils/PostHogTracking.ts"
 import { navigateWithUTM } from "../utils/UTMUtils"
 
 const Hero = ({ setSignupFormVisibility }) => {
   const [isSuccessMatrixVisible, setIsSuccessMatrixVisible] = useState(false)
   const [isLoaded, setIsLoaded] = useState(false)
   const successMatrixRef = useRef<HTMLDivElement>(null)
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoaded(true), 100)
@@ -26,19 +22,19 @@ const Hero = ({ setSignupFormVisibility }) => {
           setIsSuccessMatrixVisible(true)
           // Track section view
           trackSectionView("success_matrix", {
-            section: "hero_success_metrics"
+            section: "hero_success_metrics",
           })
         }
       },
       { threshold: 0.05, rootMargin: "100px 0px" },
     )
     if (successMatrixRef.current) observer.observe(successMatrixRef.current)
-    
+
     // Track page view for hero section
     trackPageView("hero", "home", {
-      section: "hero_landing"
+      section: "hero_landing",
     })
-    
+
     return () => {
       clearTimeout(timer)
       if (successMatrixRef.current) observer.unobserve(successMatrixRef.current)
@@ -48,162 +44,28 @@ const Hero = ({ setSignupFormVisibility }) => {
   return (
     <>
       <style>{`
-        @keyframes wave1 {
-          0% { transform: translateX(-80%) translateY(-60%) rotate(0deg); opacity: 0; }
-          10% { opacity: 0.4; }
-          50% { transform: translateX(-60%) translateY(-80%) rotate(180deg); opacity: 0.4; }
-          90% { opacity: 0.4; }
-          100% { transform: translateX(-80%) translateY(-60%) rotate(0deg); opacity: 0; }
-        }
-        
-        @keyframes wave2 {
-          0% { transform: translateX(60%) translateY(-60%) rotate(180deg); opacity: 0; }
-          15% { opacity: 0.35; }
-          50% { transform: translateX(80%) translateY(-40%) rotate(360deg); opacity: 0.35; }
-          85% { opacity: 0.35; }
-          100% { transform: translateX(60%) translateY(-60%) rotate(180deg); opacity: 0; }
-        }
-        
-        @keyframes wave3 {
-          0% { transform: translateX(-70%) translateY(40%) rotate(0deg); opacity: 0; }
-          20% { opacity: 0.3; }
-          33% { transform: translateX(-50%) translateY(60%) rotate(120deg); opacity: 0.3; }
-          66% { transform: translateX(-90%) translateY(50%) rotate(240deg); opacity: 0.3; }
-          80% { opacity: 0.3; }
-          100% { transform: translateX(-70%) translateY(40%) rotate(0deg); opacity: 0; }
-        }
-        
-        @keyframes wave4 {
-          0% { transform: translateX(70%) translateY(50%) rotate(0deg); opacity: 0; }
-          25% { opacity: 0.25; }
-          50% { transform: translateX(90%) translateY(70%) rotate(180deg); opacity: 0.25; }
-          75% { opacity: 0.25; }
-          100% { transform: translateX(70%) translateY(50%) rotate(0deg); opacity: 0; }
-        }
-        
-        @keyframes float {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          50% { transform: translateY(-20px) rotate(5deg); }
-        }
-        
-        @keyframes subtleGlow {
-          0%, 100% { 
-            box-shadow: 0 0 20px rgba(249, 115, 22, 0.2);
-          }
-          50% { 
-            box-shadow: 0 0 40px rgba(249, 115, 22, 0.4), 0 0 60px rgba(239, 68, 68, 0.2);
-          }
-        }
-
-        @keyframes floatGentle {
-          0%, 100% { transform: translateY(0px) scale(1); }
-          50% { transform: translateY(-8px) scale(1.02); }
-        }
-
-        @keyframes ripple {
-          0% { transform: scale(0.8); opacity: 1; }
-          100% { transform: scale(2.4); opacity: 0; }
+        @keyframes flowingGradient {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
         }
 
         @keyframes scrollBounce {
           0%, 100% { transform: translateY(0px); }
           50% { transform: translateY(-10px); }
         }
+        
+        .flowing-bg {
+          background: linear-gradient(-45deg, #ff6b35, #f7931e, #ff4500, #ff6b35);
+          background-size: 400% 400%;
+          animation: flowingGradient 15s ease infinite;
+          position: absolute;
+          inset: 0;
+          opacity: 0.15;
+        }
 
-        @keyframes shimmer {
-          0% { transform: translateX(-100%); }
-          100% { transform: translateX(100%); }
-        }
-        
-        .wave-bg {
-          position: absolute;
-          width: 120%;
-          height: 120%;
-          background: linear-gradient(45deg, rgba(249, 115, 22, 1), rgba(239, 68, 68, 1));
-          border-radius: 50%;
-          animation: wave1 40s ease-in-out infinite;
-          top: -10%;
-          left: -10%;
-          opacity: 0;
-        }
-        
-        .wave-bg-2 {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          background: linear-gradient(-45deg, rgba(249, 115, 22, 1), rgba(239, 68, 68, 1));
-          border-radius: 50%;
-          animation: wave2 50s ease-in-out infinite;
-          animation-delay: -5s;
-          top: -10%;
-          right: -10%;
-          opacity: 0;
-        }
-        
-        .wave-bg-3 {
-          position: absolute;
-          width: 110%;
-          height: 110%;
-          background: linear-gradient(90deg, rgba(249, 115, 22, 1), rgba(239, 68, 68, 1));
-          border-radius: 50%;
-          animation: wave3 60s ease-in-out infinite;
-          animation-delay: -10s;
-          bottom: -10%;
-          left: -10%;
-          opacity: 0;
-        }
-        
-        .wave-bg-4 {
-          position: absolute;
-          width: 105%;
-          height: 105%;
-          background: linear-gradient(135deg, rgba(249, 115, 22, 1), rgba(239, 68, 68, 1));
-          border-radius: 50%;
-          animation: wave4 45s ease-in-out infinite;
-          animation-delay: -15s;
-          bottom: -10%;
-          right: -10%;
-          opacity: 0;
-        }
-        
-        .floating-element {
-          animation: float 12s ease-in-out infinite;
-        }
-        
-        .pulse-glow {
-          animation: pulse-glow 3s ease-in-out infinite;
-        }
-        
         .scroll-bounce {
           animation: scrollBounce 2s ease-in-out infinite;
-        }
-
-        .subtle-glow {
-          animation: subtleGlow 4s ease-in-out infinite;
-        }
-
-        .float-gentle {
-          animation: floatGentle 6s ease-in-out infinite;
-        }
-
-        .ripple-effect {
-          animation: ripple 2s ease-out infinite;
-        }
-
-        .shimmer-effect {
-          position: relative;
-          overflow: hidden;
-        }
-
-        .shimmer-effect::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background: linear-gradient(90deg, transparent, rgba(249, 115, 22, 0.3), transparent);
-          animation: shimmer 3s ease-in-out infinite;
         }
       `}</style>
 
@@ -213,10 +75,7 @@ const Hero = ({ setSignupFormVisibility }) => {
         className="relative pb-4 h-screen bg-gradient-to-br from-orange-50 via-white to-red-50 overflow-hidden"
       >
         <div className="absolute inset-0 pointer-events-none">
-          <div className="wave-bg" />
-          <div className="wave-bg-2" />
-          <div className="wave-bg-3" />
-          <div className="wave-bg-4" />
+          <div className="flowing-bg" />
         </div>
 
         {/* Main Content - Centered (lift above background) */}
@@ -265,22 +124,22 @@ const Hero = ({ setSignupFormVisibility }) => {
                         utm_medium: "Website_Front_Page",
                         utm_campaign: "Website",
                       },
-                    });
+                    })
                   } catch {}
-                  
+
                   // PostHog tracking
                   trackButtonClick("Start My 7-Day Free Trial", "hero_cta", "cta", {
                     button_location: "hero_main_cta",
-                    section: "hero_landing"
-                  });
+                    section: "hero_landing",
+                  })
                   trackSignupIntent("hero_cta", {
                     signup_source: "hero_main_button",
-                    funnel_stage: "signup_intent"
-                  });
-                  
-                  navigateWithUTM('/signup', navigate);
+                    funnel_stage: "signup_intent",
+                  })
+
+                  navigateWithUTM("/signup", navigate)
                 }}
-                className="group bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 flex items-center space-x-2 w-full sm:w-auto justify-center pulse-glow transform"
+                className="group bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 flex items-center space-x-2 w-full sm:w-auto justify-center transform"
               >
                 <span>Start My 7-Day Free Trial</span>
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
@@ -296,28 +155,16 @@ const Hero = ({ setSignupFormVisibility }) => {
         </div>
       </section>
 
-      {/* Success Matrix Section - unchanged */}
-       <section className="relative bg-gradient-to-br from-orange-50 via-white to-red-50 py-16 sm:py-20 lg:py-24 overflow-hidden">
+      {/* Success Matrix Section - simplified */}
+      <section className="relative bg-gradient-to-br from-orange-50 via-white to-red-50 py-16 sm:py-20 lg:py-24 overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-orange-200/40 to-red-200/30 rounded-full blur-3xl float-gentle" />
-          <div
-            className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-red-200/30 to-orange-200/40 rounded-full blur-3xl float-gentle"
-            style={{ animationDelay: "2s" }}
-          />
-          <div
-            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-r from-orange-100/50 to-red-100/40 rounded-full blur-3xl float-gentle"
-            style={{ animationDelay: "4s" }}
-          />
+          <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-orange-200/40 to-red-200/30 rounded-full blur-3xl" />
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-red-200/30 to-orange-200/40 rounded-full blur-3xl" />
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-r from-orange-100/50 to-red-100/40 rounded-full blur-3xl" />
 
-          <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-gradient-to-r from-orange-400 to-red-400 rounded-full float-gentle opacity-60" />
-          <div
-            className="absolute top-3/4 right-1/4 w-2 h-2 bg-gradient-to-r from-red-400 to-orange-400 rounded-full float-gentle opacity-50"
-            style={{ animationDelay: "3s" }}
-          />
-          <div
-            className="absolute top-1/2 right-1/3 w-4 h-4 bg-gradient-to-r from-orange-300 to-red-300 rounded-full float-gentle opacity-40"
-            style={{ animationDelay: "1.5s" }}
-          />
+          <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-gradient-to-r from-orange-400 to-red-400 rounded-full opacity-60" />
+          <div className="absolute top-3/4 right-1/4 w-2 h-2 bg-gradient-to-r from-red-400 to-orange-400 rounded-full opacity-50" />
+          <div className="absolute top-1/2 right-1/3 w-4 h-4 bg-gradient-to-r from-orange-300 to-red-300 rounded-full opacity-40" />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -328,7 +175,7 @@ const Hero = ({ setSignupFormVisibility }) => {
             }`}
           >
             <h2
-              className={`text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold mb-4 sm:mb-6 lg:mb-8 leading-tight transition-all duration-800 delay-100 opacity-100 transform translate-y-0 lg:opacity-0 lg:transform lg:translate-y-4 shimmer-effect ${
+              className={`text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold mb-4 sm:mb-6 lg:mb-8 leading-tight transition-all duration-800 delay-100 opacity-100 transform translate-y-0 lg:opacity-0 lg:transform lg:translate-y-4 ${
                 isSuccessMatrixVisible ? "lg:opacity-100 lg:transform lg:translate-y-0" : ""
               }`}
             >
@@ -370,7 +217,7 @@ const Hero = ({ setSignupFormVisibility }) => {
                   }`}
                 >
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 xl:w-80 xl:h-80 bg-gradient-to-br from-orange-500/10 via-red-500/15 to-orange-600/10 rounded-full scale-0 group-hover:scale-100 transition-all duration-700 ease-out group-hover:opacity-100 subtle-glow" />
+                    <div className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 xl:w-80 xl:h-80 bg-gradient-to-br from-orange-500/10 via-red-500/15 to-orange-600/10 rounded-full scale-0 group-hover:scale-100 transition-all duration-700 ease-out group-hover:opacity-100" />
                   </div>
 
                   <div className="absolute inset-0 flex items-center justify-center">
@@ -382,7 +229,7 @@ const Hero = ({ setSignupFormVisibility }) => {
                   </div>
 
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100">
-                    <div className="w-20 h-20 border-2 border-orange-400/60 rounded-full ripple-effect" />
+                    <div className="w-20 h-20 border-2 border-orange-400/60 rounded-full" />
                   </div>
 
                   <div className="relative z-10 flex flex-col items-center transition-all duration-500 group-hover:scale-110">
@@ -396,7 +243,7 @@ const Hero = ({ setSignupFormVisibility }) => {
                       {stat.title}
                     </div>
 
-                    <div className="text-base sm:text-lg md:text-xl lg:text-xl xl:text-2xl font-medium text-center transition-all duration-500 bg-gradient-to-r from-orange-600 via-red-600 to-orange-700 bg-clip-text text-transparent group-hover:from-orange-500 group-hover:via-red-500 group-hover:to-orange-600">
+                    <div className="text-base sm:text-lg md:text-xl lg:text-xl xl:text-2xl font-medium text-center transition-all duration-500 bg-gradient-to-r from-orange-600 via-red-500 to-orange-700 bg-clip-text text-transparent group-hover:from-orange-500 group-hover:via-red-500 group-hover:to-orange-600">
                       {stat.subtitle}
                     </div>
                   </div>

@@ -1,19 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, Calendar, User, Phone, Mail, CheckCircle, ArrowLeft } from 'lucide-react';
 import { InlineWidget } from 'react-calendly';
+import { loadFormData, saveFormData, clearFormData, FormData } from '../utils/LocalStorageUtils';
 
 
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 const SignupModal = ({setCalendlyUser }) => {
   const [step, setStep] = useState(1);
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     fullName: '',
     phone: '',
     countryCode: '+1',
     email: '',
     workAuthorization: ''
   });
+
+  // Load form data from localStorage on component mount
+  useEffect(() => {
+    const savedData = loadFormData();
+    setFormData(savedData);
+  }, []);
 
 
   (window as any).openSignupModal = (customStep = 1) => {
@@ -34,7 +41,7 @@ const SignupModal = ({setCalendlyUser }) => {
     const modal = document.getElementById('signup-modal');
     if (modal) modal.classList.add('hidden');
     setStep(1);
-    setFormData({ fullName: '', phone: '', countryCode: '+1', email: '', workAuthorization: '' });
+    // Don't clear form data on close - keep it for next time
   };
 
   async function SaveDetailsToDB() {
@@ -70,7 +77,8 @@ const SignupModal = ({setCalendlyUser }) => {
       formData.phone.length === 10
     ) {
       await SaveDetailsToDB();
-      
+      // Clear form data after successful submission
+      clearFormData();
     }
   } catch (error) {
     console.log('Error during form submission:', error);
@@ -90,18 +98,26 @@ const SignupModal = ({setCalendlyUser }) => {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
+    let newFormData: FormData;
+    
     if (name === 'phone') {
       const numericValue = value.replace(/\D/g, '');
       if (numericValue.length <= 10) {
-        setFormData({
+        newFormData = {
           ...formData,
           [name]: numericValue,
           // countryCode: detectedCountry
-        });
+        };
+      } else {
+        return; // Don't update if phone number is too long
       }
     } else {
-      setFormData({ ...formData, [name]: value });
+      newFormData = { ...formData, [name]: value };
     }
+    
+    setFormData(newFormData);
+    // Save to localStorage on every change
+    saveFormData(newFormData);
   };
 
   const goBack = () => {

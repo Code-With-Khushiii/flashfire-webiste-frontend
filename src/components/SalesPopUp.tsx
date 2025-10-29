@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { us_cities, first_names, actions, products } from "../utils/PopupNotifications.js";
 import { Dot, RadioTower } from "lucide-react";
 
-export default function SalesPopup() {
+export default function SalesPopup({ isBookingFlow = false }: { isBookingFlow?: boolean }) {
   const generateNotification = () => {
     const [city, state, lat, lng] = us_cities[Math.floor(Math.random() * us_cities.length)];
     const name = first_names[Math.floor(Math.random() * first_names.length)];
@@ -20,8 +20,22 @@ export default function SalesPopup() {
   const [current, setCurrent] = useState(generateNotification());
   const [visitors, setVisitors] = useState(() => 300 + Math.floor(Math.random() * 300));
 
+  // Hide all notifications immediately when booking flow starts
+  useEffect(() => {
+    if (isBookingFlow) {
+      setVisibleSales(false);
+      setVisibleOptimizer(false);
+      setVisibleVisitors(false);
+    }
+  }, [isBookingFlow]);
+
   useEffect(() => {
   const showSequence = () => {
+    // Don't show any notifications if user is in booking flow
+    if (isBookingFlow) {
+      return;
+    }
+
     // Step 1: Show Sales Notification
     setCurrent(generateNotification());
     setVisibleSales(true);
@@ -31,19 +45,23 @@ export default function SalesPopup() {
 
     // Step 2: After 11s (3s shown + 8s delay), show Optimizer
     setTimeout(() => {
-      setVisibleOptimizer(true);
-      setTimeout(() => {
-        setVisibleOptimizer(false);
-      }, 3000); // Hide after 3s
+      if (!isBookingFlow) {
+        setVisibleOptimizer(true);
+        setTimeout(() => {
+          setVisibleOptimizer(false);
+        }, 3000); // Hide after 3s
+      }
     }, 11000);
 
     // Step 3: After 22s (14s + 8s delay), show Visitors
     setTimeout(() => {
-      setVisitors(100 + Math.floor(Math.random() * 151));
-      setVisibleVisitors(true);
-      setTimeout(() => {
-        setVisibleVisitors(false);
-      }, 3000); // Hide after 3s
+      if (!isBookingFlow) {
+        setVisitors(100 + Math.floor(Math.random() * 151));
+        setVisibleVisitors(true);
+        setTimeout(() => {
+          setVisibleVisitors(false);
+        }, 3000); // Hide after 3s
+      }
     }, 22000);
   };
 
@@ -53,7 +71,7 @@ export default function SalesPopup() {
   // Repeat every full cycle: 25s shown + 8s delay = 33s
   const interval = setInterval(showSequence, 33000);
   return () => clearInterval(interval);
-}, []);
+}, [isBookingFlow]);
 
   return (
     <>

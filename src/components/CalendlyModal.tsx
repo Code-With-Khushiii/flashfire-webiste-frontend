@@ -7,7 +7,7 @@ import { trackCalendlyBooking } from '../utils/CRMTracking';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://api.flashfirejobs.com';
 
-function CalendlyModal({ setCalendlyModalVisibility, user, isVisible }: { setCalendlyModalVisibility: (visible: boolean) => void , user: (any), isVisible: boolean }) {
+function CalendlyModal({ setCalendlyModalVisibility, user, isVisible, onClose }: { setCalendlyModalVisibility: (visible: boolean) => void , user: (any), isVisible: boolean, onClose?: () => void }) {
   const [profileInvitee, setProfileInvitee] = useState<{ email?: string; name?: string } | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [hasLoadedOnce, setHasLoadedOnce] = useState(false);
@@ -18,6 +18,11 @@ function CalendlyModal({ setCalendlyModalVisibility, user, isVisible }: { setCal
 
     // ✅ First close modal
     setCalendlyModalVisibility(false);
+
+    // ✅ Call the onClose prop if provided
+    if (onClose) {
+      onClose();
+    }
 
     // ✅ Then navigate (slight delay ensures modal closes cleanly)
     setTimeout(() => {

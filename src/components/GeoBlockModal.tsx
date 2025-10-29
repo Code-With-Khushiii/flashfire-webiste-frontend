@@ -27,18 +27,24 @@ const GeoBlockModal: React.FC<GeoBlockModalProps> = ({
   if (!isVisible) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
-      <div className="relative bg-white max-w-md w-full mx-4 rounded-2xl shadow-2xl overflow-hidden">
+    <div 
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50"
+      onClick={onClose}
+    >
+      <div 
+        className="relative bg-white max-w-md w-full mx-4 rounded-2xl shadow-2xl overflow-hidden"
+        onClick={(e) => e.stopPropagation()}
+      >
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-white hover:text-gray-600 transition p-1 z-10"
+          className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 transition p-1 z-10 bg-white/80 hover:bg-white rounded-full shadow-sm"
         >
           <X className="w-5 h-5" />
         </button>
 
         {/* Header */}
-        <div className="bg-gradient-to-br from-orange-500 to-red-600 p-6 text-white">
+        {/* <div className="bg-gradient-to-br from-orange-500 to-red-600 p-6 text-white">
           <div className="flex items-center gap-3">
             <div className="p-2 bg-white/20 rounded-lg">
               <Globe className="w-6 h-6" />
@@ -48,7 +54,7 @@ const GeoBlockModal: React.FC<GeoBlockModalProps> = ({
               <p className="text-orange-100 text-sm">We're expanding globally!</p>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Content */}
         <div className="p-6 text-center">

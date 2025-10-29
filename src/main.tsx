@@ -42,6 +42,7 @@ const routes=createBrowserRouter([
       { path: 'blogs', element: <BlogPage /> },
       { path: '/signup', element : <Home /> },
       { path: '/get-a-demo', element : <Home /> },
+      { path: '/get-started-now', element : <Home /> },
       { path: '/testimonials', element : <Home /> },
       { path : '/employers', element : <Home />},
       { path : '/faq', element: <Home />},

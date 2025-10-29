@@ -1,6 +1,12 @@
 import React from 'react';
 import { GTagUTM } from '../utils/GTagUTM';
 import { trackButtonClick, trackExternalLink } from '../utils/PostHogTracking.ts';
+export const handleWhatsAppClick = () => {
+  const phoneNumber = '919817349846'; // Your phone number with country code
+  const message = encodeURIComponent('Hi! I\'m interested in Flashfire\'s AI-powered job search automation. Can you help me get started?');
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+  window.open(whatsappUrl, '_blank');
+};
 
 const WhatsAppButton = () => {
   const handleWhatsAppClick = () => {

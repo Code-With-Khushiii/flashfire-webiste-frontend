@@ -8,6 +8,7 @@ import {
   trackModalOpen
 } from "../utils/PostHogTracking.ts";
 import { createLinkWithUTM, navigateWithUTM } from "../utils/UTMUtils";
+import { handleWhatsAppClick } from "./WhatsAppButton.tsx";
 interface NavigationProps {
   setSignupFormVisibility: React.Dispatch<React.SetStateAction<boolean>>;
   setCalendlyModalVisibility: React.Dispatch<React.SetStateAction<boolean>>;
@@ -287,7 +288,7 @@ const Navigation: React.FC<NavigationProps> = ({
     });
     
     // PostHog tracking
-    trackButtonClick("Get a Demo", "navigation_header", "cta", {
+    trackButtonClick("Get Started Now", "navigation_header", "cta", {
       button_location: "header",
       navigation_type: "desktop"
     });
@@ -405,15 +406,16 @@ const Navigation: React.FC<NavigationProps> = ({
             <div className="hidden md:block">
               <button
                 onClick={() => {
-                  trackButtonClick("Get a Demo", "navigation_header_desktop", "cta", {
+                  trackButtonClick("Get Started Now", "navigation_header_desktop", "cta", {
                     button_location: "header_desktop",
                     navigation_type: "desktop"
                   });
-                  navigateWithUTM('/get-a-demo', navigate);
+                  navigateWithUTM('/get-started-now', navigate);
+                  handleWhatsAppClick();
                 }}
                 className="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-4 lg:px-6 py-2 lg:py-2.5 rounded-full font-semibold hover:from-orange-600 hover:to-orange-700 transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105 text-sm lg:text-base"
               >
-                Get a Demo
+                Get Started Now →
               </button>
             </div>
 
@@ -486,16 +488,16 @@ const Navigation: React.FC<NavigationProps> = ({
                 {/* CTA Button (mobile) */}
                 <button
                   onClick={() => {
-                    trackButtonClick("Get a Demo", "navigation_mobile_menu", "cta", {
+                    trackButtonClick("Get Started Now", "navigation_mobile_menu", "cta", {
                       button_location: "mobile_menu",
                       navigation_type: "mobile"
                     });
-                    navigateWithUTM('/get-a-demo', navigate);
+                    navigateWithUTM('/get-started-now', navigate);
                     setIsMenuOpen(false);
                   }}
                   className="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-3 py-3 rounded-lg font-semibold hover:from-orange-600 hover:to-orange-700 transition-all duration-200 block text-center mt-4 w-full text-base"
                 >
-                  Get a Demo
+                  Get Started Now →
                 </button>
               </div>
             </div>
