@@ -1,5 +1,5 @@
-import { useMemo } from "react"
-import { Play, Linkedin } from "lucide-react"
+import { useMemo, useState } from "react"
+import { Play, Linkedin, X } from "lucide-react"
 
 const customStyles = `
   @keyframes scroll-up {
@@ -10,21 +10,16 @@ const customStyles = `
     0% { transform: translateY(-50%); }
     100% { transform: translateY(0); }
   }
-
   .marquee-col {
     animation-iteration-count: infinite;
     animation-timing-function: linear;
     animation-play-state: running;
   }
-
   .marquee-group:hover .marquee-col {
     animation-play-state: paused;
   }
-
   @media (prefers-reduced-motion: reduce) {
-    .marquee-col {
-      animation: none !important;
-    }
+    .marquee-col { animation: none !important; }
   }
 `
 
@@ -44,30 +39,79 @@ function chunkInto<N extends number>(arr: string[], n: N): string[][] {
 }
 
 const VideoTestimonial = ({ testimonial, index }: { testimonial: any; index: number }) => {
+  const [showVideo, setShowVideo] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(false)
+
+  const handlePlay = () => {
+    setLoading(true)
+    setShowVideo(true)
+    setError(false)
+  }
+
+  const handleClose = () => {
+    setShowVideo(false)
+    setLoading(false)
+    setError(false)
+  }
+
   return (
-    <div className="mb-4 inline-block w-full rounded-xl transform transition-all duration-300">
+    <div className="mb-4 inline-block w-full rounded-xl transition-all duration-300">
       <div className="relative overflow-hidden rounded-xl">
-        <img
-          src={testimonial.thumbnail || "/placeholder.svg"}
-          alt={`${testimonial.name} video testimonial`}
-          className="w-full aspect-[3/4] object-cover rounded-xl"
-        />
+        {!showVideo ? (
+          <>
+            <img
+              src={testimonial.thumbnail || "/placeholder.svg"}
+              alt={`${testimonial.name} video testimonial`}
+              className="w-full aspect-[3/4] object-cover rounded-xl"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <button
+                onClick={handlePlay}
+                className="relative w-16 h-16 bg-white/95 rounded-full flex items-center justify-center hover:bg-white transition-all duration-300 hover:scale-110"
+              >
+                <Play className="w-8 h-8 text-orange-500 ml-1" />
+                <span className="absolute inset-0 rounded-full border-2 border-white/70 animate-ping" />
+              </button>
+            </div>
+          </>
+        ) : (
+          <div className="relative">
+            {loading && !error && (
+              <div className="absolute inset-0 bg-black/70 flex items-center justify-center z-10">
+                <div className="flex flex-col items-center gap-3">
+                  <div className="w-10 h-10 border-4 border-orange-500 border-t-transparent rounded-full animate-spin"></div>
+                  <p className="text-white text-sm">Loading video...</p>
+                </div>
+              </div>
+            )}
 
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+            {error && (
+              <div className="absolute inset-0 bg-black/80 flex flex-col items-center justify-center z-10 text-white p-4 text-center">
+                <p className="mb-2">Video unavailable</p>
+                <button onClick={handleClose} className="underline text-orange-400">Close</button>
+              </div>
+            )}
 
-        <div className="absolute inset-0 flex items-center justify-center">
-          <a
-            href={`${testimonial.videoUrl}?autoplay=1&controls=1&modestbranding=1&rel=0`}
-            target="_blank"
-            rel="noreferrer"
-            className="relative w-16 h-16 bg-white/95 rounded-full flex items-center justify-center hover:bg-white transition-all duration-300 hover:scale-110"
-          >
-            <Play className="w-8 h-8 text-orange-500 ml-1" />
-            <span className="absolute inset-0 rounded-full border-2 border-white/70 animate-ping" />
-          </a>
-        </div>
+            <iframe
+              src={`${testimonial.videoUrl}?autoplay=1&controls=1&modestbranding=1&rel=0`}
+              className="w-full aspect-[3/4] rounded-xl"
+              allow="autoplay; encrypted-media"
+              allowFullScreen
+              onLoad={() => setLoading(false)}
+              onError={() => { setLoading(false); setError(true); }}
+            />
+            <button
+              onClick={handleClose}
+              className="absolute top-3 right-3 bg-white/80 hover:bg-white rounded-full p-1 transition"
+            >
+              <X className="w-5 h-5 text-gray-700" />
+            </button>
+          </div>
+        )}
 
-        {testimonial.linkedinUrl && (
+        {testimonial.linkedinUrl && !showVideo && (
           <a
             href={testimonial.linkedinUrl}
             target="_blank"
@@ -116,7 +160,7 @@ export default function TestimonialsGrid() {
           </p>
         </div>
 
-        {/* Auto-scrolling testimonials */}
+        {/* Auto-scrolling images */}
         <div className="marquee-group relative grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 h-[68vh] md:h-[70vh] lg:h-[72vh] select-none">
           {cols.map((colItems, colIdx) => {
             const dur = `${speeds[colIdx % speeds.length]}s`
@@ -141,7 +185,7 @@ export default function TestimonialsGrid() {
           })}
         </div>
 
-        {/* Video testimonials (unchanged) */}
+        {/* Video testimonials */}
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {[
             {
