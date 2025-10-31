@@ -81,7 +81,7 @@ export default function TestimonialsStatic() {
                     ))}
                 </div>
             </div>
-            <div className="relative z-10 bg-gradient-to-b from-orange-50 to-white mt-16">
+            <div className="relative z-10  bg-gradient-to-br from-orange-400 via-orange-500 to-red-500 mt-16">
                 <div className="bg-white border border-orange-200 mt-10 shadow-xl rounded-3xl p-10 sm:p-16 max-w-6xl mx-auto leading-relaxed">
 
                     {/* Hero Heading - Bold Letter Style */}
