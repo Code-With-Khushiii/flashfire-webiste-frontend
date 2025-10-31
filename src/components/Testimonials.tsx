@@ -24,12 +24,12 @@ const customStyles = `
 `
 
 const screenshots = [
-  "/images/image1.jpg","/images/image3.jpg","/images/image4.jpg","/images/image5.jpg",
-  "/images/image6.jpg","/images/image7.jpg","/images/image8.jpg","/images/image9.png",
-  "/images/image10.jpg","/images/image13.png","/images/image14.jpg","/images/image15.jpg",
-  "/images/image16.png","/images/image17.png","/images/image18.jpg","/images/image19.png",
-  "/images/image20.png","/images/image21.png","/images/image22.png","/images/image23.png",
-  "/images/image24.png","/images/image25.png",
+  "/images/image1.jpg", "/images/image3.jpg", "/images/image4.jpg", "/images/image5.jpg",
+  "/images/image6.jpg", "/images/image7.jpg", "/images/image8.jpg", "/images/image9.png",
+  "/images/image10.jpg", "/images/image13.png", "/images/image14.jpg", "/images/image15.jpg",
+  "/images/image16.png", "/images/image17.png", "/images/image18.jpg", "/images/image19.png",
+  "/images/image20.png", "/images/image21.png", "/images/image22.png", "/images/image23.png",
+  "/images/image24.png", "/images/image25.png",
 ]
 
 function chunkInto<N extends number>(arr: string[], n: N): string[][] {
@@ -181,8 +181,17 @@ export default function TestimonialsGrid() {
                   </div>
                 </div>
               </div>
+
             )
           })}
+        </div>
+        <div className="text-center mt-12">
+          <button
+            onClick={() => window.open("/testimonials-static", "_blank")}
+            className="px-6 py-3 bg-white text-orange-600 font-semibold rounded-full shadow-md hover:bg-orange-100 transition"
+          >
+            Read More
+          </button>
         </div>
 
         {/* Video testimonials */}

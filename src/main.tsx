@@ -2,7 +2,7 @@ import { StrictMode, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import Router from './components/Router.tsx';
 import './index.css';
-import {RouterProvider, createBrowserRouter, BrowserRouter, Routes, Route, Link} from 'react-router-dom';
+import { RouterProvider, createBrowserRouter, BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import ReactDom from 'react-dom/client';
 import App from './App.tsx'
 import PaymentPolicy from './components/PaymentPolicy';
@@ -27,28 +27,30 @@ import EmployerForm from './components/EmployerForm.tsx';
 import EmployerPage from './components/EmployerPage.tsx';
 import CampaignManager from './components/CampaignManager.tsx';
 import ProtectedCampaignManager from './components/ProtectedCampaignManager.tsx';
+import TestimonialsStatic from './components/TestimonialsStatic.tsx';
 
-const routes=createBrowserRouter([
+
+const routes = createBrowserRouter([
   {
     path: '/',
     element: <App />,
     children: [
-      {path : '/', index: true, element: <Home /> },                 // <-- this
-      {path : '/home', element : <Home />},
+      { path: '/', index: true, element: <Home /> },                 // <-- this
+      { path: '/home', element: <Home /> },
       { path: 'paymentpolicy', element: <PaymentPolicy /> },
       { path: 'refundpolicy', element: <RefundPolicy /> },
       { path: 'privacypolicy', element: <PrivacyPolicy /> },
       { path: 'termsofservice', element: <TermsOfService /> },
       { path: 'blogs', element: <BlogPage /> },
-      { path: '/signup', element : <Home /> },
-      { path: '/get-a-demo', element : <Home /> },
-      { path: '/get-started-now', element : <Home /> },
-      { path: '/testimonials', element : <Home /> },
-      { path : '/employers', element : <Home />},
-      { path : '/faq', element: <Home />},
-      {path : '/pricing', element : <Home />},
-      {path : '/features', element : <Home />},
-      {path : '/book-free-demo', element : <Home />}
+      { path: '/signup', element: <Home /> },
+      { path: '/get-a-demo', element: <Home /> },
+      { path: '/get-started-now', element: <Home /> },
+      { path: '/testimonials', element: <Home /> },
+      { path: '/employers', element: <Home /> },
+      { path: '/faq', element: <Home /> },
+      { path: '/pricing', element: <Home /> },
+      { path: '/features', element: <Home /> },
+      { path: '/book-free-demo', element: <Home /> }
     ],
   },
   // Standalone blog reader pages (no navigation, no footer - clean reading experience)
@@ -58,7 +60,7 @@ const routes=createBrowserRouter([
   },
   {
     path: '/blogs/:id',
-    element: <IndividualBlog /> 
+    element: <IndividualBlog />
   },
   {
     path: '/employer-registration',
@@ -68,8 +70,11 @@ const routes=createBrowserRouter([
     path: '/campaign',
     // Gate access behind password prompt inside ProtectedCampaignManager
     element: <ProtectedCampaignManager />
+  },
+  {
+    path: '/testimonials-static',
+    element: <TestimonialsStatic />
   }
-
 ]);
 
 const options = {
@@ -98,11 +103,11 @@ const options = {
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-  <PostHogProvider apiKey={import.meta.env.VITE_PUBLIC_POSTHOG_KEY} options={options}>
-    {/* <Router /> */}
-    {/* <ScrollToHash> */}
-    <RouterProvider router={routes} />
-    {/* </ScrollToHash> */}
+    <PostHogProvider apiKey={import.meta.env.VITE_PUBLIC_POSTHOG_KEY} options={options}>
+      {/* <Router /> */}
+      {/* <ScrollToHash> */}
+      <RouterProvider router={routes} />
+      {/* </ScrollToHash> */}
     </PostHogProvider>
   </StrictMode>
 );
