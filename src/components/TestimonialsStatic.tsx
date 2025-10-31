@@ -11,23 +11,30 @@ const screenshots = [
 
 export default function TestimonialsStatic() {
   return (
-    <div className="min-h-screen bg-white py-16 px-6">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-black text-center mb-8 text-orange-500">
+    <section className="min-h-screen bg-gradient-to-br from-orange-400 via-orange-500 to-red-500 py-16 px-6">
+      <div className="max-w-7xl mx-auto">
+        {/* Heading */}
+        <h2 className="text-4xl sm:text-5xl font-black text-center mb-10 text-white drop-shadow-md">
           All Testimonials
         </h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+
+        {/* Masonry grid */}
+        <div className="columns-2 sm:columns-3 md:columns-4 lg:columns-5 gap-4 space-y-4">
           {screenshots.map((src, idx) => (
-            <div key={idx} className="rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all">
+            <div
+              key={idx}
+              className="relative overflow-hidden rounded-2xl shadow-lg border border-white/20 break-inside-avoid transform transition duration-300 hover:scale-[1.02] hover:shadow-2xl"
+            >
               <img
                 src={src}
                 alt={`Testimonial ${idx + 1}`}
-                className="w-full h-auto object-cover"
+                className="w-full h-auto object-cover rounded-2xl"
+                loading="lazy"
               />
             </div>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
