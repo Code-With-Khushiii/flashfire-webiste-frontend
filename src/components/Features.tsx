@@ -37,11 +37,7 @@ const Features = ({ setSignupFormVisibility }) => {
     {
       icon: <Zap className="w-8 h-8 text-red-500" />,
       title: "Lightning Fast Applications",
-<<<<<<< HEAD
-      description: "A dedicated team of 4–5 people handles your job hunt—applying to 1,200+ roles in 6–7 weeks. We’ll keep you posted with every update in a WhatsApp group made just for you",
-=======
       description: "A dedicated team of 4–5 people handles your job hunt—applying to 1,200+ roles in 6–7 weeks. We’ll keep you posted with every update in a WhatsApp group made just for you.",
->>>>>>> 16c90c0a8e399937ffe0025f26afa91e23d9d3b7
       highlight: "Speed Matters"
     },
     {
