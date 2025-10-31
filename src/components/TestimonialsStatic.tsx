@@ -10,24 +10,24 @@ const screenshots = [
     "/images/image20.png", "/images/image21.png", "/images/image22.png", "/images/image23.png",
     "/images/image24.png", "/images/image25.png",
 ];
- const teamMembers = [
+const teamMembers = [
     {
-      name: "Adit Jain",
-      role: "Partner",
-      image: "https://res.cloudinary.com/drit9nkha/image/upload/v1753688852/Adit_f2qfe8.webp",
-      linkedin: "https://www.linkedin.com/in/adit-jain-907555218/",
-      description:
-        "Former Growth Associate with a background in operations, focused on solving user pain points through scalable, outcome-driven systems.",
+        name: "Adit Jain",
+        role: "Partner",
+        image: "https://res.cloudinary.com/drit9nkha/image/upload/v1753688852/Adit_f2qfe8.webp",
+        linkedin: "https://www.linkedin.com/in/adit-jain-907555218/",
+        description:
+            "Former Growth Associate with a background in operations, focused on solving user pain points through scalable, outcome-driven systems.",
     },
     {
-      name: "Pranjal Tripathi",
-      role: "CTO",
-      image: "https://res.cloudinary.com/drit9nkha/image/upload/v1753688852/pran_img_nbwdya.webp",
-      linkedin: "https://www.linkedin.com/in/pranjal-tripathi-a98048222/",
-      description:
-        "AI and automation specialist with 3+ years of experience, leading Flashfire's intelligent job-matching and automation systems.",
+        name: "Pranjal Tripathi",
+        role: "CTO",
+        image: "https://res.cloudinary.com/drit9nkha/image/upload/v1753688852/pran_img_nbwdya.webp",
+        linkedin: "https://www.linkedin.com/in/pranjal-tripathi-a98048222/",
+        description:
+            "AI and automation specialist with 3+ years of experience, leading Flashfire's intelligent job-matching and automation systems.",
     },
-  ];
+];
 
 export default function TestimonialsStatic() {
     const [loaded, setLoaded] = useState(false)
@@ -81,101 +81,101 @@ export default function TestimonialsStatic() {
                     ))}
                 </div>
             </div>
+            <div className="relative z-10 bg-gradient-to-b from-orange-50 to-white mt-16">
+                <div className="bg-white border border-orange-200 mt-10 shadow-xl rounded-3xl p-10 sm:p-16 max-w-6xl mx-auto leading-relaxed">
 
-            <div className="bg-white border border-orange-200 mt-10 shadow-xl rounded-3xl p-10 sm:p-16 max-w-6xl mx-auto leading-relaxed">
-
-                {/* Hero Heading - Bold Letter Style */}
-                <p className="text-gray-900 font-bold text-[1.4rem] leading-snug mb-6">
-                    To Every Job Seeker Who’s Ready to Move Forward
-                </p>
-
-                {/* Story Sections */}
-                <div className="space-y-6 text-gray-700 text-[1.1rem]">
-                    <p>
-                        I know how exhausting the job search can be. You keep sending out application after application,
-                        waiting for replies, and slowly start to wonder if it’s you. Especially in the U.S., where hundreds
-                        apply for the same role, even the most talented people begin to lose hope.
+                    {/* Hero Heading - Bold Letter Style */}
+                    <p className="text-gray-900 font-bold text-[1.4rem] leading-snug mb-6">
+                        To Every Job Seeker Who’s Ready to Move Forward
                     </p>
 
-                    <p>
-                        Flashfire was born from that same feeling. I watched my sister, smart, capable, and hardworking,
-                        apply to hundreds of roles and still get no response. It wasn’t her fault. The system had stopped
-                        seeing people for who they are.
-                    </p>
+                    {/* Story Sections */}
+                    <div className="space-y-6 text-gray-700 text-[1.1rem]">
+                        <p>
+                            I know how exhausting the job search can be. You keep sending out application after application,
+                            waiting for replies, and slowly start to wonder if it’s you. Especially in the U.S., where hundreds
+                            apply for the same role, even the most talented people begin to lose hope.
+                        </p>
 
-                    <p className="border-l-4 border-orange-400 pl-4 italic">
-                        The problem was never the people. It was the process.
-                    </p>
+                        <p>
+                            Flashfire was born from that same feeling. I watched my sister, smart, capable, and hardworking,
+                            apply to hundreds of roles and still get no response. It wasn’t her fault. The system had stopped
+                            seeing people for who they are.
+                        </p>
 
-                    <p>
-                        That’s when <span className="font-semibold text-orange-600">Pranjal</span> joined me. He had been through
-                        the same struggle, preparing hard, clearing rounds, yet still falling short of the offer. Not because he
-                        wasn’t good enough, but because the process wasn’t fair. Instead of giving up, he decided to help build a
-                        better way forward.
-                    </p>
+                        <p className="border-l-4 border-orange-400 pl-4 italic">
+                            The problem was never the people. It was the process.
+                        </p>
 
-                    <p>
-                        Together, we started building Flashfire with belief, empathy, and persistence.
-                    </p>
+                        <p>
+                            That’s when <span className="font-semibold text-orange-600">Pranjal</span> joined me. He had been through
+                            the same struggle, preparing hard, clearing rounds, yet still falling short of the offer. Not because he
+                            wasn’t good enough, but because the process wasn’t fair. Instead of giving up, he decided to help build a
+                            better way forward.
+                        </p>
 
-                    <p>
-                        What began as a way to help one person is now helping hundreds. Flashfire helps people apply smarter,
-                        tell their stories better, and finally hear that long-awaited “yes.”
-                    </p>
-                </div>
+                        <p>
+                            Together, we started building Flashfire with belief, empathy, and persistence.
+                        </p>
+
+                        <p>
+                            What began as a way to help one person is now helping hundreds. Flashfire helps people apply smarter,
+                            tell their stories better, and finally hear that long-awaited “yes.”
+                        </p>
+                    </div>
 
 
-                {/* Team Members Grid */}
-                <div className="grid sm:grid-cols-2 gap-12 max-w-4xl mt-10 mx-auto">
-                    {teamMembers.map((member, index) => (
-                        <div key={index} className="text-center">
-                            {/* Profile Image - Square */}
-                            <div className="mb-4 inline-block">
-                                <div
-                                    className={`w-44 h-44 rounded-2xl overflow-hidden shadow-md border border-gray-200 ${member.name === "Pranjal Tripathi" ? "bg-cover bg-center" : ""
-                                        }`}
-                                    style={
-                                        member.name === "Pranjal Tripathi"
-                                            ? {
-                                                backgroundImage: `url(${member.image})`,
-                                                backgroundSize: "120%",
-                                                backgroundPosition: "center",
-                                            }
-                                            : {}
-                                    }
-                                >
-                                    {member.name === "Adit Jain" && (
-                                        <img
-                                            src={member.image || "/placeholder.svg"}
-                                            alt={member.name}
-                                            className="w-full h-full object-cover object-[center_20%] rounded-2xl"
-                                        />
-                                    )}
+                    {/* Team Members Grid */}
+                    <div className="grid sm:grid-cols-2 gap-12 max-w-4xl mt-10 mx-auto">
+                        {teamMembers.map((member, index) => (
+                            <div key={index} className="text-center">
+                                {/* Profile Image - Square */}
+                                <div className="mb-4 inline-block">
+                                    <div
+                                        className={`w-44 h-44 rounded-2xl overflow-hidden shadow-md border border-gray-200 ${member.name === "Pranjal Tripathi" ? "bg-cover bg-center" : ""
+                                            }`}
+                                        style={
+                                            member.name === "Pranjal Tripathi"
+                                                ? {
+                                                    backgroundImage: `url(${member.image})`,
+                                                    backgroundSize: "120%",
+                                                    backgroundPosition: "center",
+                                                }
+                                                : {}
+                                        }
+                                    >
+                                        {member.name === "Adit Jain" && (
+                                            <img
+                                                src={member.image || "/placeholder.svg"}
+                                                alt={member.name}
+                                                className="w-full h-full object-cover object-[center_20%] rounded-2xl"
+                                            />
+                                        )}
+                                    </div>
                                 </div>
-                            </div>
 
-                            {/* Member Name + LinkedIn (row), Role below */}
-                            <div className="mt-2 flex items-center justify-center gap-2">
-                                <h3 className="text-xl font-bold text-gray-900 text-center">{member.name}</h3>
-                                <a
-                                    href={member.linkedin}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label={`${member.name} LinkedIn Profile`}
-                                    title="LinkedIn"
-                                    className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#E6F0FA] text-[#0A66C2] hover:bg-[#D9EAF7] focus:outline-none focus:ring-2 focus:ring-[#BFD7F2] transition"
-                                >
-                                    <Linkedin className="w-3.5 h-3.5" />
-                                </a>
+                                {/* Member Name + LinkedIn (row), Role below */}
+                                <div className="mt-2 flex items-center justify-center gap-2">
+                                    <h3 className="text-xl font-bold text-gray-900 text-center">{member.name}</h3>
+                                    <a
+                                        href={member.linkedin}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label={`${member.name} LinkedIn Profile`}
+                                        title="LinkedIn"
+                                        className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#E6F0FA] text-[#0A66C2] hover:bg-[#D9EAF7] focus:outline-none focus:ring-2 focus:ring-[#BFD7F2] transition"
+                                    >
+                                        <Linkedin className="w-3.5 h-3.5" />
+                                    </a>
+                                </div>
+                                <p className="mt-1 text-sm text-gray-600 text-center">{member.role}</p>
                             </div>
-                            <p className="mt-1 text-sm text-gray-600 text-center">{member.role}</p>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
+
+
                 </div>
-
-
             </div>
-
         </section>
     );
 }
