@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { Linkedin, Mail, Calendar, MessageCircle } from "lucide-react";
+import Footer from "./Footer";
 
 
 const screenshots = [
@@ -247,7 +248,9 @@ export default function TestimonialsStatic() {
                     </div>
                 </div>
             </section>
+            <Footer />
         </section>
 
+                        
     );
 }
