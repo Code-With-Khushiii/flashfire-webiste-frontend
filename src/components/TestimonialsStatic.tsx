@@ -38,7 +38,7 @@ export default function TestimonialsStatic() {
         setLoaded(true)
     }, [])
     return (
-        <section className="relative min-h-screen bg-gradient-to-br from-orange-400 via-orange-500 to-red-500 overflow-hidden mt-6 px-6">
+        <section className="relative min-h-screen mt-6 bg-gradient-to-br from-orange-400 via-orange-500 to-red-500 overflow-hidden px-6">
             {/* <div className="absolute inset-0 " /> */}
 
             {/* Content Container */}
