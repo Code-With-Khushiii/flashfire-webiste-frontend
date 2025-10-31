@@ -145,6 +145,11 @@ function SignupForm({ setSignupFormVisibility, setCalendlyModalVisibility, setCa
       form_step: "form_interaction"
     });
     
+
+    try {
+      localStorage.setItem('submitted', 'true');
+    } catch {}
+
     setCalendlyUser(formData);
     navigateWithUTM('/book-free-demo', navigate);
 

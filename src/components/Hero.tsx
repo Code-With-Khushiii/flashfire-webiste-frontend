@@ -1,10 +1,18 @@
 import { useState, useEffect, useRef } from "react";
 import { ArrowRight, Sparkles } from "lucide-react";
 
+<<<<<<< HEAD
 const Hero = ({ setSignupFormVisibility }) => {
   const [isSuccessMatrixVisible, setIsSuccessMatrixVisible] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const successMatrixRef = useRef<HTMLDivElement>(null);
+=======
+const Hero = ({ setSignupFormVisibility }: { setSignupFormVisibility: React.Dispatch<React.SetStateAction<boolean>> }) => {
+  const [isSuccessMatrixVisible, setIsSuccessMatrixVisible] = useState(false)
+  const [isLoaded, setIsLoaded] = useState(false)
+  const successMatrixRef = useRef<HTMLDivElement>(null)
+  const navigate = useNavigate();
+>>>>>>> 16c90c0a8e399937ffe0025f26afa91e23d9d3b7
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoaded(true), 100);
@@ -245,8 +253,54 @@ const Hero = ({ setSignupFormVisibility }) => {
             >
               <button
                 type="button"
+<<<<<<< HEAD
                 onClick={() => setSignupFormVisibility(true)}
                 className="group bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 flex items-center space-x-2 pulse-glow"
+=======
+                onClick={() => {
+                  // Track with both GTag and PostHog
+                  try {
+                    GTagUTM({
+                      eventName: "sign_up_click",
+                      label: "Hero_Start_Free_Trial_Button",
+                      utmParams: {
+                        utm_source: "WEBSITE",
+                        utm_medium: "Website_Front_Page",
+                        utm_campaign: "Website",
+                      },
+                    });
+                  } catch {}
+                  
+                  // PostHog tracking
+                  trackButtonClick("Start My 7-Day Free Trial", "hero_cta", "cta", {
+                    button_location: "hero_main_cta",
+                    section: "hero_landing"
+                  });
+                  trackSignupIntent("hero_cta", {
+                    signup_source: "hero_main_button",
+                    funnel_stage: "signup_intent"
+                  });
+
+                  try {
+                    const hasSubmitted = localStorage.getItem('submitted') === 'true';
+                    const savedRaw = localStorage.getItem('flashfire_signup_form_data');
+                    let hasDetails = false;
+                    if (savedRaw) {
+                      try {
+                        const saved = JSON.parse(savedRaw);
+                        hasDetails = Boolean(saved?.fullName && saved?.email);
+                      } catch {}
+                    }
+                    if (hasSubmitted || hasDetails) {
+                      navigateWithUTM('/book-free-demo', navigate);
+                      return;
+                    }
+                  } catch {}
+
+                  navigateWithUTM('/signup', navigate);
+                }}
+                className="group bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 flex items-center space-x-2 w-full sm:w-auto justify-center pulse-glow transform"
+>>>>>>> 16c90c0a8e399937ffe0025f26afa91e23d9d3b7
               >
                 <span>Start My 7-Day Free Trial</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
