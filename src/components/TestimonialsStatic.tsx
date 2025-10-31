@@ -248,8 +248,8 @@ export default function TestimonialsStatic() {
                     </div>
                 </div>
             </section>
-            <div className="mt-10">
-                <Footer />
+            <div className="mt-4 mb-0">
+                <Footer className="!py-4" />  {/* reduces top/bottom padding */}
             </div>
         </section>
 
