@@ -598,18 +598,6 @@ const Pricing = () => {
             </p>
           </div>
 
-          {/* Stylish Divider */}
-          {/* <div className="w-24 h-1 bg-orange-400 rounded-full mx-auto my-12"></div> */}
-
-          {/* Team Section */}
-          {/* <div className="text-center mb-10">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
-              Meet the People Behind Flashfire
-            </h2>
-            <p className="text-gray-600 mt-3 max-w-2xl mx-auto text-lg">
-              A team built from real struggles — now building real solutions.
-            </p>
-          </div> */}
 
           {/* Team Members Grid */}
           <div className="grid sm:grid-cols-2 gap-12 max-w-4xl mt-10 mx-auto">
