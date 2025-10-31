@@ -248,9 +248,11 @@ export default function TestimonialsStatic() {
                     </div>
                 </div>
             </section>
-            <Footer />
+            <div className="mt-10">
+                <Footer />
+            </div>
         </section>
 
-                        
+
     );
 }
