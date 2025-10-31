@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { Linkedin } from "lucide-react";
+import Contact from './Contact';
 
 const screenshots = [
     "/images/image1.jpg", "/images/image3.jpg", "/images/image4.jpg", "/images/image5.jpg",
@@ -47,11 +48,11 @@ export default function TestimonialsStatic() {
                     >
                         <div className="text-center">
                             <h1 className="text-5xl sm:text-6xl font-bold text-white" style={{ fontFamily: "Pacifico, cursive" }}>
-                                All Testimonials
+                               Hear It from the People We’ve Helped
                             </h1>
 
                             {/* Subtitle */}
-                            <p className="text-center text-white/90 text-lg sm:text-xl mt-4">See what our happy users are saying!</p>
+                            <p className="text-center text-white/90 text-lg sm:text-xl mt-4">What started as individual dreams became shared victories — and we’re proud to have been part of their journey.</p>
                         </div>
                     </div>
                 </div>
@@ -175,6 +176,9 @@ export default function TestimonialsStatic() {
 
 
                 </div>
+            </div>
+            <div className="mt-16">
+                <Contact setSignupFormVisibility={setSignupFormVisibility ?? (() => { })} />
             </div>
         </section>
     );
