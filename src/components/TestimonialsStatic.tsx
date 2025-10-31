@@ -178,7 +178,7 @@ export default function TestimonialsStatic() {
                 </div>
             </div>
             <section className="mt-6 rounded-2xl sm:mt-6 bg-gradient-to-b from-white to-gray-50">
-                <div className="max-w-4xl max-h-4x1 mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="w-[80%] sm:w-[70%] max-w-3xl h-[550px] mx-auto px-6 py-12 sm:px-8 lg:px-10">
                     {/* Header */}
                     <div className="text-center mb-12 sm:mb-16">
                         <div className="inline-flex items-center space-x-2 bg-orange-100 text-orange-800 px-4 py-2 rounded-full text-sm font-medium mb-4">
