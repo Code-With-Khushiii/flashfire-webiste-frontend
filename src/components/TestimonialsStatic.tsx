@@ -48,7 +48,7 @@ export default function TestimonialsStatic() {
                         className={`transform transition-all duration-1000 ${loaded ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}
                     >
                         <div className="text-center">
-                            <h1 className="text-5xl sm:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-red-500 to-pink-500">
+                            <h1 className="text-5xl sm:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-rose-500 to-red-500">
                                 Hear It from the People We’ve Helped
                             </h1>
 
@@ -70,7 +70,7 @@ export default function TestimonialsStatic() {
                             }}
                         >
                             {/* Image container */}
-                            <div className="relative rounded-2xl overflow-hidden border-4 border-white/80 shadow-lg bg-white/5">
+                            <div className="relative rounded-2xl overflow-hidden border-4 border-orange-400 shadow-lg bg-white/5">
                                 <img
                                     src={src || "/placeholder.svg"}
                                     alt={`Happy user testimonial ${idx + 1}`}
@@ -179,8 +179,8 @@ export default function TestimonialsStatic() {
 
                 </div>
             </div>
-            <section className="mt-10 sm:mt-12 bg-gradient-to-b from-white to-gray-50 rounded-3xl shadow-lg w-[85%] sm:w-[70%] lg:w-[60%] min-h-[700px] mx-auto flex flex-col justify-center px-6 sm:px-10 py-14">
-                <div className="max-w-3xl mx-auto text-center">
+            <section className="mt-10 sm:mt-12 py-16 sm:py-24 bg-gradient-to-b from-white to-gray-50 justify-center px-6 sm:px-10 ">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     {/* Header */}
                     <div className="text-center mb-12 sm:mb-16">
                         <div className="inline-flex items-center space-x-2 bg-orange-100 text-orange-800 px-4 py-2 rounded-full text-sm font-medium mb-4">
