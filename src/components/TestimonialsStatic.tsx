@@ -38,7 +38,7 @@ export default function TestimonialsStatic() {
         setLoaded(true)
     }, [])
     return (
-        <section className="relative min-h-screen bg-gradient-to-br from-orange-400 via-orange-500 to-red-500 overflow-hidden  mb-0 pt-16 pb-0 px-6">
+        <section className="relative min-h-screen bg-gradient-to-b from-white to-gray-50 overflow-hidden  mb-0 pt-16 pb-0 px-6">
             {/* <div className="absolute inset-0 " /> */}
 
             {/* Content Container */}
@@ -48,12 +48,13 @@ export default function TestimonialsStatic() {
                         className={`transform transition-all duration-1000 ${loaded ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}
                     >
                         <div className="text-center">
-                            <h1 className="text-5xl sm:text-6xl font-bold text-white" style={{ fontFamily: "Pacifico, cursive" }}>
+                            <h1 className="text-5xl sm:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-red-500 to-pink-500">
                                 Hear It from the People We’ve Helped
                             </h1>
 
+
                             {/* Subtitle */}
-                            <p className="text-center text-white/90 text-lg sm:text-xl mt-4">What started as individual dreams became shared victories — and we’re proud to have been part of their journey.</p>
+                            <p className="text-center text-orange-400 text-lg sm:text-xl mt-4">What started as individual dreams became shared victories — and we’re proud to have been part of their journey.</p>
                         </div>
                     </div>
                 </div>
